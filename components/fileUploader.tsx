@@ -24,9 +24,9 @@ export default function FileUploader() {
   };
 
   return (
-    <form onSubmit={handleUpload}>
-      <input type="file" name="file" />
-      <button type="submit">Enviar</button>
+    <form onSubmit={handleUpload} className="flex flex-col gap-5 w-60">
+      <input type="file" name="file" className="border"/>
+      <button type="submit" className="border cursor-pointer ">Enviar</button>
 
       {url && (
         <div>
