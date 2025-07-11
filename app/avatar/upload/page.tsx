@@ -4,12 +4,12 @@ import type { PutBlobResult } from '@vercel/blob';
 import { useState, useRef } from 'react';
 
 export default function AvatarUploadPage() {
-    
+
     const inputFileRef = useRef<HTMLInputElement>(null);
     const [blob, setBlob] = useState<PutBlobResult | null>(null);
 
     return (
-        <>
+        <div className='p-5 m-5 w-[50%] border rounded-md'>
             <h1>Upload Your Avatar</h1>
 
             <form
@@ -37,13 +37,13 @@ export default function AvatarUploadPage() {
                 }}
             >
                 <input name="file" ref={inputFileRef} type="file" accept="image/jpeg, image/png, image/webp" required className='border rounded-md '/>
-                <button type="submit">Upload</button>
+                <button type="submit" className='w-full bg-green-400 rounded-md shadow-md p-1'>Upload</button>
             </form>
             {blob && (
                 <div>
-                    Blob url: <a href={blob.url}>{blob.url}</a>
+                    Blob url: <a className='text-blue-500' href={blob.url}>{blob.url}</a>
                 </div>
             )}
-        </>
+        </div>
     );
 }
